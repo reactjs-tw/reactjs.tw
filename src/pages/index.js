@@ -74,7 +74,7 @@ class Home extends Component {
     return (
       <div css={{width: '100%'}}>
         <TitleAndMetaTags
-          title="React - A JavaScript library for building user interfaces"
+          title="React - 台灣正體中文站"
           ogUrl={createOgUrl('index.html')}
         />
         <header
@@ -156,7 +156,7 @@ class Home extends Component {
                       fontSize: 30,
                     },
                   }}>
-                  A JavaScript library for building user interfaces
+                  前端工程師的最佳選擇
                 </p>
                 <Flex
                   valign="center"
@@ -168,16 +168,51 @@ class Home extends Component {
                     },
                   }}>
                   <CtaItem>
-                    <ButtonLink to="/docs/hello-world.html" type="primary">
-                      Get Started
+                    <ButtonLink to="/tw/docs/hello-world.html" type="primary">
+                      馬上試試
                     </ButtonLink>
                   </CtaItem>
                   <CtaItem>
                     <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                      Take the Tutorial
+                      教學
                     </ButtonLink>
                   </CtaItem>
                 </Flex>
+                <p
+                  css={{
+                    paddingTop: 30,
+                    textAlign: 'center',
+                    fontSize: 18,
+                    letterSpacing: '0.01em',
+                    fontWeight: 200,
+                    color: '#ccc',
+
+                    [media.size('xsmall')]: {
+                      fontSize: 12,
+                      maxWidth: '12em',
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                    },
+
+                    [media.greaterThan('xlarge')]: {
+                      paddingTop: 20,
+                      fontSize: 24,
+                    },
+                  }}>
+                  台灣正體中文化進行中, 歡迎大家到以下Repo協助翻譯工作！
+                </p>
+                <a 
+                  css={{
+                    display: 'block',
+                    textAlign: 'center',
+                    marginTop: 8,
+                    color: colors.brand,
+                  }}
+                  href='https://github.com/whitedogg13/reactjs.org'
+                  target="_blank"
+                >
+                  Github Repo
+                </a>
               </Container>
             </div>
           </div>

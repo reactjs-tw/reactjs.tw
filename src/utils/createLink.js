@@ -67,7 +67,7 @@ const createLinkDocs = ({
   return (
     <Link
       css={[linkCss, isActive && activeLinkCss]}
-      to={slugify(item.id, section.directory)}>
+      to={slugify(item.id, `tw/${section.directory}`)}>
       {isActive && <span css={activeLinkBefore} />}
       {item.title}
     </Link>

@@ -8,7 +8,7 @@
 // $FlowExpectedError
 import navCommunity from '../../content/community/nav.yml';
 // $FlowExpectedError
-import navDocs from '../../content/docs/nav.yml';
+import navDocs from '../../content/docs_tw/nav.yml';
 // $FlowExpectedError
 import navTutorial from '../../content/tutorial/nav.yml';
 
