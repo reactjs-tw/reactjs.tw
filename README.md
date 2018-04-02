@@ -1,3 +1,12 @@
+# reactjs.org 台灣正體中文化
+
+```
+ReactJS網站的台灣正體中文計畫, 目標希望能帶給台灣的React開發者更好的教學及說明文件.
+歡迎任何形式的Contributions!
+```
+
+以下為原始README內容
+
 # reactjs.org
 
 This repo contains the source code and documentation powering [reactjs.org](https://reactjs.org/).
