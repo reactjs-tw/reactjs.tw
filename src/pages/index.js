@@ -208,7 +208,7 @@ class Home extends Component {
                     marginTop: 8,
                     color: colors.brand,
                   }}
-                  href='https://github.com/whitedogg13/reactjs.org'
+                  href='https://github.com/revtel/reactjs.org'
                   target="_blank"
                 >
                   Github Repo
