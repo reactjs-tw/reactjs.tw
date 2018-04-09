@@ -130,11 +130,11 @@ ReactDOM.render(
 
 > 譯註: 這裏原文有提到`View hierarchy`, 指的是UI的呈現類似於一個樹狀結構, 比如HTML也是其中一個例子.
 
-## Extracting Components
+## 將components切成更小的components
 
-Don't be afraid to split components into smaller components.
+盡可能地將components切成更小的components.
 
-For example, consider this `Comment` component:
+舉例來說, 看看以下的`Comment`component:
 
 ```js
 function Comment(props) {
@@ -162,11 +162,17 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components).
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+這個component用來描述社群網站上的一則回應, 他的prop包含了
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+* `author`(一個object)
+* `text`(一個string)
+* 一個`date`(一個date物件), 
 
-First, we will extract `Avatar`:
+這個component並不容易修改也不容易維護, 因為它包含了兩種不同的資訊, 其一是關於用來描述該回應的使用者, 另外則是用來描述該回應本身. 讓我們把這個component切成更小的單位:
+
+首先是`Avatar`:
+
+> 譯註: 這邊`Avatar`有點`大頭相`的意思, 用來描述我們在社群網站上的登入圖像
 
 ```js{3-6}
 function Avatar(props) {
@@ -179,11 +185,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+`Avatar`可以獨立於`Comment`使用, 因此我們進一步選擇本來叫做`author`的prop改名為`user`, 更貼近這個component想表達的意義. 
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+當你在替props命名的時候, 盡可能站在該component自己的角度, 而非使用這個component的角度.
 
-We can now simplify `Comment` a tiny bit:
+此時原來的`Comment`已經可以被簡化一部分:
 
 ```js{5}
 function Comment(props) {
@@ -206,7 +212,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+接著, 我們將使用者的帳號名稱與`Avatar`包成一個新的`UserInfo` component:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -221,7 +227,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+此時, `Comment`變得更單純了:
 
 ```js{4}
 function Comment(props) {
@@ -241,11 +247,18 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued).
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+雖然將component切小這件事看起來很枯燥, 但是一但你開始重複使用這些`小`component的時候, 你絕對可以感受到它的價值!
 
-## Props are Read-Only
+有兩個小原則值得和大家分享:
 
-Whether you declare a component [as a function or a class](#functional-and-class-components), it must never modify its own props. Consider this `sum` function:
+1. 基本的UI元件, 像是`Button`, `Panel`, `Avatar`, 都應該component化
+2. 或是, 當數個語意相關的UI元件一同出現時, 也是component化的好選擇, 比如`App`, `FeedStory`, `Comment`.
+
+## Props是唯讀的
+
+無論你使用[class 或是 function](#functional-and-class-components) component, 所有component都不應該修改被傳入的props. 也就是說, 對於component來說, props是`唯讀`的.
+
+為了多說明`唯讀`的觀念, 請看下面這個function:
 
 ```js
 function sum(a, b) {
@@ -253,9 +266,12 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+上述function稱為["pure function"](https://en.wikipedia.org/wiki/Pure_function), 因為他們:
 
-In contrast, this function is impure because it changes its own input:
+* 不會修改傳入的參數
+* 當傳入的參數相同時, 永遠回傳相同的結果
+
+反之, 以下的function就不算是pure function, 因為他修改了傳入的參數:
 
 ```js
 function withdraw(account, amount) {
@@ -263,8 +279,9 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React幾乎沒有任何嚴格的規定, 唯獨除了這條:
 
-**All React components must act like pure functions with respect to their props.**
+**所有React component對於傳入的props而言都應該表現得像個pure function一樣**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+然而我們也知道, 一個應用所呈現出來的UI絕對是動態的, 那麼React要如何處理這個部分呢? 請看下回[分解](/docs/state-and-lifecycle.html).
+
