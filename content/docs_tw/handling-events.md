@@ -1,6 +1,6 @@
 ---
 id: handling-events
-title: Handling Events
+title: 事件處理
 permalink: tw/docs/handling-events.html
 prev: state-and-lifecycle.html
 next: conditional-rendering.html
@@ -8,12 +8,12 @@ redirect_from:
   - "tw/docs/events-ko-KR.html"
 ---
 
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
+React 和 DOM 的事件處理邏輯大致雷同，只有少數幾處不太一樣:
 
-* React events are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* React 事件採取駝峰式命名(camelCase)，一般 DOM 事件則以小寫命名。
+* JSX 中以 javascript function 作為事件處理函式，DOM 則是以字串格式表示。
 
-For example, the HTML:
+以下是一段範例：
 
 ```html
 <button onclick="activateLasers()">
@@ -21,7 +21,7 @@ For example, the HTML:
 </button>
 ```
 
-is slightly different in React:
+其等價的 React 語式是：
 
 ```js{1}
 <button onClick={activateLasers}>
@@ -29,7 +29,7 @@ is slightly different in React:
 </button>
 ```
 
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+此外，在 default behavior 的處理上也有所不同。在既有的 DOM 中，你可以回傳 `false` 來阻止事件的 default behavior 被執行。但在 React 中，你必須明確的呼叫 `preventDefault` 方能達到一樣的結果。下面這個例子中，如果你想阻止 link 的 default behavior - 開啟新頁，你可以這樣編寫：
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -37,7 +37,7 @@ Another difference is that you cannot return `false` to prevent default behavior
 </a>
 ```
 
-In React, this could instead be:
+但在 React 中，你必須寫成：
 
 ```js{2-5,8}
 function ActionLink() {
@@ -54,11 +54,9 @@ function ActionLink() {
 }
 ```
 
-Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. See the [`SyntheticEvent`](/docs/events.html) reference guide to learn more.
+上面範例裡的 `e` 是 React 根據 [W3C 規範](https://www.w3.org/TR/DOM-Level-3-Events/) 而模擬的事件，因此你不用擔心不同瀏覽器間的事件有所不同。更多細節請參考 [`SyntheticEvent`](/docs/events.html)。
 
-When using React you should generally not need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
-
-When you define a component using an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), a common pattern is for an event handler to be a method on the class. For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
+當你以 [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 撰寫 React 元件時，我們通常以 class method 的形式撰寫事件的處理函式。For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
