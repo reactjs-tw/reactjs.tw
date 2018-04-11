@@ -7,11 +7,9 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-Consider the ticking clock example from [one of the previous sections](/docs/rendering-elements.html#updating-the-rendered-element).
+接下來讓我們重新看看之前的[時鐘範例](/docs/rendering-elements.html#updating-the-rendered-element).
 
-So far we have only learned one way to update the UI.
-
-We call `ReactDOM.render()` to change the rendered output:
+目前為止, 我們只有一招可以用來更新UI, 那就是`ReactDOM.render()`:
 
 ```js{8-11}
 function tick() {
@@ -32,9 +30,9 @@ setInterval(tick, 1000);
 
 [Try it on CodePen.](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-In this section, we will learn how to make the `Clock` component truly reusable and encapsulated. It will set up its own timer and update itself every second.
+在本節當中, 我們會想辦法讓先前的時鐘範例變成一個自給自足的`Clock` component, 他可以做到自己每秒更新UI一次而不需要透過`ReactDOM.render()`!
 
-We can start by encapsulating how the clock looks:
+第一步, 我們先把JSX的部分獨立出來:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -58,9 +56,9 @@ setInterval(tick, 1000);
 
 [Try it on CodePen.](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-However, it misses a crucial requirement: the fact that the `Clock` sets up a timer and updates the UI every second should be an implementation detail of the `Clock`.
+當然, 現在這個`Clock` component仍舊依靠外來的`props`才得以更新UI, 這導致使用`Clock`的程式必須負責設置計時器(timer), 並取出秒數給`Clock`, 這並不是一個理想的方法.
 
-Ideally we want to write this once and have the `Clock` update itself:
+我們真正希望的是`Clock` component可以被這樣使用:
 
 ```js{2}
 ReactDOM.render(
@@ -69,11 +67,13 @@ ReactDOM.render(
 );
 ```
 
-To implement this, we need to add "state" to the `Clock` component.
+要能達成我們的目標, 我們需要學習一個新觀念: **component的`state`**.
 
-State is similar to props, but it is private and fully controlled by the component.
+你可以將`State`想像成是`專屬於component自己的資料`, 由`該component 100%控制`.
 
-We [mentioned before](/docs/components-and-props.html#functional-and-class-components) that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
+> 譯註: 切記切記! 對component來說, `props`是從`外部`傳進來的資料, 而`state`是完全屬於component`內部`的資料!
+
+要在component中使用state, 你必須用`class component`的方法來撰寫該component, 這也是[`class component`與`functional component`](/docs/components-and-props.html#functional-and-class-components)的最大的差異. 
 
 ## Converting a Function to a Class
 
@@ -319,35 +319,35 @@ Let's quickly recap what's going on and the order in which the methods are calle
 
 5) If the `Clock` component is ever removed from the DOM, React calls the `componentWillUnmount()` lifecycle hook so the timer is stopped.
 
-## Using State Correctly
+## 使用`setState`的正確方法
 
 There are three things you should know about `setState()`.
 
-### Do Not Modify State Directly
+### 不要直接修改State
 
-For example, this will not re-render a component:
+以下的程式碼並不會觸發UI的更動:
 
 ```js
 // Wrong
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+我們應該要使用`setState()`:
 
 ```js
 // Correct
 this.setState({comment: 'Hello'});
 ```
 
-The only place where you can assign `this.state` is the constructor.
+我們應該避免直接修改`state`, 唯一的例外是在`constructor`中第一次對state賦值時.
 
-### State Updates May Be Asynchronous
+### `State`的更新是非同步的
 
-React may batch multiple `setState()` calls into a single update for performance.
+基於效能的理由, React會把多個`setState()`集合起來一次進行真正的UI更新.
 
-Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+因為`this.props`和`this.state`可能會非同步的被更新, 基於他們的值來計算下次的state可能造成難解的bug
 
-For example, this code may fail to update the counter:
+舉例來說, 下面這段程式碼可能造成不正確的state:
 
 ```js
 // Wrong
@@ -356,7 +356,7 @@ this.setState({
 });
 ```
 
-To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+當你遇到這種狀況時, 可以使用`setState()`的另一個形式: 傳入一個function (本來是傳入一個object). 這個function會在React更新下次state之前被呼叫, 並被傳入之前的state以及當下的props:
 
 ```js
 // Correct
@@ -365,7 +365,7 @@ this.setState((prevState, props) => ({
 }));
 ```
 
-We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
+在這個範例中我們使用了[arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions), 但其實使用一般的function也可以:
 
 ```js
 // Correct
@@ -376,7 +376,7 @@ this.setState(function(prevState, props) {
 });
 ```
 
-### State Updates are Merged
+### 多個State的更新會被集合起來
 
 When you call `setState()`, React merges the object you provide into the current state.
 
