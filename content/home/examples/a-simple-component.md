@@ -1,8 +1,8 @@
 ---
-title: A Simple Component
+title: 最簡單的元件
 order: 0
 ---
 
-React components implement a `render()` method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by `render()` via `this.props`.
+React 元件提供了 `render()` 函式，藉由輸入資料來輸出希望顯示的畫面。下面這個範例使用了被稱為 JSX 的類 XML 語法。`render` 所需的資料從 `this.props` 裡取得。
 
-**JSX is optional and not required to use React.** Try the [Babel REPL](babel://es5-syntax-example) to see the raw JavaScript code produced by the JSX compilation step.
+**使用 React 並不一定得使用 JSX。** 請到 [Babel REPL](babel://es5-syntax-example) 看看如何只使用 JavaScript 渲染畫面。
