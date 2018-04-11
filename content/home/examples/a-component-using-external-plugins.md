@@ -1,6 +1,6 @@
 ---
-title: A Component Using External Plugins
+title: 使用外部套件的元件
 order: 3
 ---
 
-React is flexible and provides hooks that allow you to interface with other libraries and frameworks. This example uses **remarkable**, an external Markdown library, to convert the `<textarea>`'s value in real time.
+React 十分有彈性，它讓您很容易掛載其他第三方的函式庫及框架。下方的範例掛載了一個 Markdown 函式庫 **remarkable**，讓 `<textarea>` 的內容值能即時顯示。
