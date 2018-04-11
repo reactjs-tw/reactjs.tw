@@ -56,7 +56,8 @@ function ActionLink() {
 
 上面範例裡的 `e` 是 React 根據 [W3C 規範](https://www.w3.org/TR/DOM-Level-3-Events/) 而模擬的事件，因此你不用擔心不同瀏覽器間的事件有所不同。更多細節請參考 [`SyntheticEvent`](/docs/events.html)。
 
-當你以 [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 撰寫 React 元件時，我們通常以 class method 的形式撰寫事件的處理函式。For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
+當你以 [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 撰寫 React 元件時，我們通常以 class method 的形式撰寫事件的處理函式。舉一個名為 `Toggle` 的元件為例，它是一個具有 `ON` / `OFF` 兩個狀態的按鈕：
+
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -89,13 +90,13 @@ ReactDOM.render(
 );
 ```
 
-[Try it on CodePen.](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[跳轉至 CodePen 測試](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not [bound](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` when the function is actually called.
+在這裡你必須特別小心在 JSX 中 `this` 的使用。在 JavaScript 中， class method 預設是沒有做 this binding 的 (請參考[這篇文章](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind))。倘若你忘記替 `this.handleClick` 做正確的 this binding 就在 `onClick` 中使用，`this` 事實上可能會是 `undefined`。
 
-This is not React-specific behavior; it is a part of [how functions work in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
+這並非 React 才獨有的問題，更多細節請參閱 [how functions work in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)。一般來說，如果你想使用 `onClick={this.handleClick}` 這種寫法，你應該自己做好 this binding。
 
-If calling `bind` annoys you, there are two ways you can get around this. If you are using the experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use class fields to correctly bind callbacks:
+如果你覺得在 class 中都時時注意 this binding 的問題是很麻煩的事，這裡有兩種建議的寫法。其一是遵照 [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/)，而這個特性已經被 [Create React App](https://github.com/facebookincubator/create-react-app) 預設支援：
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -115,9 +116,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-This syntax is enabled by default in [Create React App](https://github.com/facebookincubator/create-react-app).
-
-If you aren't using class fields syntax, you can use an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in the callback:
+其二是使用 javascript 中的 [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)：
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -136,17 +135,17 @@ class LoggingButton extends React.Component {
 }
 ```
 
-The problem with this syntax is that a different callback is created each time the `LoggingButton` renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem.
+但這種寫法的缺點是它會在 `LoggingButton` 每次 render 都產生新的 callback。假使你將這個 callback 傳遞給子元件，這將造成子元件出現許多無意義的渲染。針對這個缺點，我們建議在 `constructor` 就做好這個 callback 或者乾脆採取第一種 class fields syntax 的方法。
 
-## Passing Arguments to Event Handlers
+## 事件處理響應函式的參數傳遞
 
-Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+我們常常會想要在多個地方共用同一個事件響應函式。舉例來說，在迴圈中傳遞 row id 是很常見的情況：
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 
-The above two lines are equivalent, and use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectively.
+上述兩個寫法是等價的，並分別用了 [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 及 [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)。
 
-In both cases, the `e` argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with `bind` any further arguments are automatically forwarded.
+在這兩個寫法中，`e` 參數指的是 React 中的事件，他是跟在 ID 之後的第二參數。當我們使用 array function 時，必須明確寫出其傳遞。但第二種 `bind` 的寫法它會自動被傳遞。
