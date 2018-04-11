@@ -1,8 +1,8 @@
 ---
-title: Learn Once, Write Anywhere
+title: 一次學習，處處可寫
 order: 2
 ---
 
-We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
+React 對應用程式不做任何多餘的假設，是以您可以很容易的重新撰寫既存的程式碼。
 
-React can also render on the server using Node and power mobile apps using [React Native](https://facebook.github.io/react-native/).
+除了在瀏覽器執行之外，React 同時可在伺服器端 (藉由 Node) 及手機應用內 (藉由 [React Native](https://facebook.github.io/react-native/)) 執行。

@@ -1,8 +1,8 @@
 ---
-title: Component-Based
+title: 基於原件
 order: 1
 ---
 
-Build encapsulated components that manage their own state, then compose them to make complex UIs.
+在 React 中，我們撰寫高聚合低耦合的元件，並藉由組合他們來構建複雜的畫面。
 
-Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+此外，因為藉由 JavaScript 而非樣板描述元件邏輯，您可以很輕易的在應用程式內調動大量資料並不影響實際的 DOM 佈局。
