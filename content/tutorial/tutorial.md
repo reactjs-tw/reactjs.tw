@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro To React"
+title: "React 無痛入門"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,11 +12,11 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-## Before We Start
+## 在一切開始之前
 
-### What We're Building
+### 讓我們來寫個遊戲
 
-Today, we're going to build an interactive tic-tac-toe game.
+井字棋 (OX 遊戲) 看起來很適合當我們第一個 React 程式作品！
 
 If you like, you can check out the final result here: [Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010). Don't worry if the code doesn't make sense to you yet, or if it uses an unfamiliar syntax. We will be learning how to build this game step by step throughout this tutorial.
 

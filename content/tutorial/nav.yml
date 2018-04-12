@@ -1,12 +1,12 @@
 - title: Tutorial
   items:
     - id: before-we-start
-      title: Before We Start
+      title: 在一切開始之前
       href: /tutorial/tutorial.html#before-we-start
       forceInternal: true
       subitems:
         - id: what-were-building
-          title: What We're Building
+          title: 讓我們來寫個遊戲
           href: /tutorial/tutorial.html#what-were-building
           forceInternal: true
         - id: prerequisites
