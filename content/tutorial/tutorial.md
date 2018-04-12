@@ -18,11 +18,11 @@ redirect_from:
 
 井字棋 (OX 遊戲) 看起來很適合當我們第一個 React 程式作品！
 
-If you like, you can check out the final result here: [Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010). Don't worry if the code doesn't make sense to you yet, or if it uses an unfamiliar syntax. We will be learning how to build this game step by step throughout this tutorial.
+開始之前可以先看看[最終成果](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)。不用擔心那些程式碼看起來像是天書，在這份教學裡我們會一步一步和您一起完成它。
 
-Try playing the game. You can also click on a button in the move list to go "back in time" and see what the board looked like just after that move was made.
+試著玩看看它！也觀察一下回溯的功能是否正確的在盤面上復現歷史。
 
-Once you get a little familiar with the game, feel free to close that tab, as we'll start from a simpler template in the next sections.
+如果您已經對這個遊戲有了基本的掌握，那就讓我們關掉遊戲分頁然後開始實作他吧！
 
 ### Prerequisites
 
