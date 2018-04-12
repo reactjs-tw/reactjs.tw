@@ -24,11 +24,11 @@ redirect_from:
 
 如果您已經對這個遊戲有了基本的掌握，那就讓我們關掉遊戲分頁然後開始實作他吧！
 
-### Prerequisites
+### 先修準備
 
-We'll assume some familiarity with HTML and JavaScript, but you should be able to follow along even if you haven't used them before.
+我們假設您對 HTML 及 JavaScript 並不陌生。但即使您在這之前從未使用過它們，下面的教學應該也能讓您大致理解。
 
-If you need a refresher on JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6, a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+如果您想複習 JavaScript，[這份文件](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)應該能幫助您。請特別注意我們會使用到新版 JavaScript 規範 - ES6 的技巧。在這篇教學中，我們使用了 [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)、 [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)、 [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 及 [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)。您可以使用 [Babel REPL](babel://es5-syntax-example) 來看看 ES6 編譯後的結果。
 
 ### How to Follow Along
 
