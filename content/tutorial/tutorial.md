@@ -22,7 +22,7 @@ redirect_from:
 
 試著玩看看它！也觀察一下回溯的功能是否正確的在盤面上復現歷史。
 
-如果您已經對這個遊戲有了基本的掌握，那就讓我們關掉遊戲分頁然後開始實作他吧！
+如果您已經對這個遊戲有了基本的掌握，那就讓我們關掉遊戲分頁然後開始實作它吧！
 
 ### 先修準備
 
@@ -30,9 +30,9 @@ redirect_from:
 
 如果您想複習 JavaScript，[這份文件](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)應該能幫助您。請特別注意我們會使用到新版 JavaScript 規範 - ES6 的技巧。在這篇教學中，我們使用了 [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)、 [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)、 [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 及 [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)。您可以使用 [Babel REPL](babel://es5-syntax-example) 來看看 ES6 編譯後的結果。
 
-### How to Follow Along
+### 課程環境需求
 
-There are two ways to complete this tutorial: you could either write the code right in the browser, or you could set up a local development environment on your machine. You can choose either option depending on what you feel comfortable with.
+這些教學所需的環境您可以直接在線上編輯環境中撰寫執行或在您的機器設置好開發環境。請選擇一個您覺得方便舒適的方式。
 
 #### If You Prefer to Write Code in the Browser
 
