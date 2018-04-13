@@ -32,17 +32,17 @@ redirect_from:
 
 ### 課程環境需求
 
-這些教學所需的環境您可以直接在線上編輯環境中撰寫執行或在您的機器設置好開發環境。請選擇一個您覺得方便舒適的方式。
+這些教學所需的環境您可以直接在線上編輯環境中撰寫執行或在您的電腦設置好開發環境。請選擇一個您覺得方便舒適的方式。
 
-#### If You Prefer to Write Code in the Browser
+#### 在線上編輯器內操作
 
-This is the quickest way to get started!
+這是最快可以開始課程的方式！
 
-First, open this [starter code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010) in a new tab. It should display an empty tic-tac-toe field. We will be editing that code during this tutorial.
+首先在新分頁打開[這個網址](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)。您應該會看到一個空白的井字期盤面。接下來您就可以遵照這篇教學繼續往下學習了。
 
-You can now skip the next section about setting up a local development environment and head straight to the [overview](#overview).
+請忽略下一個章節「在您的電腦內操作」，直接跳到[背景知識](#overview)。
 
-#### If You Prefer to Write Code in Your Editor
+#### 在您的電腦內操作
 
 Alternatively, you can set up a project on your computer.
 
@@ -89,7 +89,7 @@ If you get stuck, check out the [community support resources](/community/support
 
 With this out of the way, let's get started!
 
-## Overview
+## 背景知識
 
 ### What is React?
 
