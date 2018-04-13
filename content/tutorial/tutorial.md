@@ -40,7 +40,7 @@ redirect_from:
 
 首先在新分頁打開[這個網址](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)。您應該會看到一個空白的井字期盤面。接下來您就可以遵照這篇教學繼續往下學習了。
 
-請忽略下一個章節「在您的電腦內操作」，直接跳到[背景知識](#overview)。
+請忽略下一個章節「在您的電腦內操作」，直接跳到[背景知識](#背景知識)。
 
 #### 在您的電腦內操作
 
@@ -83,7 +83,7 @@ Now if you run `npm start` in the project folder and open `http://localhost:3000
 
 We recommend following [these instructions](http://babeljs.io/docs/editors) to configure syntax highlighting for your editor.
 
-### Help, I'm Stuck!
+### 救命啊！我卡住了！
 
 If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux chat](/community/support.html#reactiflux-chat) is a great way to get quick help. If you don't get a good answer anywhere, please file an issue, and we'll help you out.
 

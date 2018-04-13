@@ -2,24 +2,24 @@
   items:
     - id: before-we-start
       title: 在一切開始之前
-      href: /tutorial/tutorial.html#before-we-start
+      href: /tutorial/tutorial.html#在一切開始之前
       forceInternal: true
       subitems:
         - id: what-were-building
           title: 讓我們來寫個遊戲
-          href: /tutorial/tutorial.html#what-were-building
+          href: /tutorial/tutorial.html#讓我們來寫個遊戲
           forceInternal: true
         - id: prerequisites
           title: 先修準備
-          href: /tutorial/tutorial.html#prerequisites
+          href: /tutorial/tutorial.html#先修準備
           forceInternal: true
         - id: how-to-follow-along
           title: 課程環境需求
-          href: /tutorial/tutorial.html#how-to-follow-along
+          href: /tutorial/tutorial.html#課程環境需求
           forceInternal: true
         - id: help-im-stuck
-          title: Help, I'm Stuck!
-          href: /tutorial/tutorial.html#help-im-stuck
+          title: 救命啊！我卡住了！
+          href: /tutorial/tutorial.html#救命啊！我卡住了！
           forceInternal: true
     - id: overview
       title: 背景知識
