@@ -44,34 +44,31 @@ redirect_from:
 
 #### 在您的電腦內操作
 
-Alternatively, you can set up a project on your computer.
+這個章節我們將與您分享如何在您的電腦設定環境。請注意，**這個章節所敘述的內容和實際如何撰寫 React 程式沒有直接關係**，只是讓您能以習慣的編輯器做開發。
 
-Note: **this is completely optional and not required for this tutorial!**
+如果您要繼續往下，請遵照這兩個步驟：
+1. 確定您安裝了近期版本的 [Node.js](https://nodejs.org/en/)。
+2. 根據[安裝步驟指引](/docs/add-react-to-a-new-app.html)來創建新專案。
 
-This is more work, but lets you work from the comfort of your editor.
-
-If you want to do it, here are the steps to follow:
-
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions](/docs/add-react-to-a-new-app.html) to create a new project.
+> 請協助翻譯「安裝步驟指引」！
 
 ```bash
 npm install -g create-react-app
 create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project (don't delete the folder, just its contents).
+3. 刪除位於新專案 `src/` 下的所有檔案。只刪除檔案，`src/` 資料夾請保留。 
 
 ```bash
 cd my-app
 rm -f src/*
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. 將[這些 CSS 程式碼](https://codepen.io/gaearon/pen/oWWQNa?editors=0100)填入到 `src/index.css`。
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. 將[這些 JavaScript 程式碼](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)填入到 `src/index.js`。
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. 打開 `src/index.js`，並將以下三行加到最頂部：
 
 ```js
 import React from 'react';
@@ -79,15 +76,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+緊接著請您在專案根目錄執行 `npm start`。如此一來，在瀏覽器中瀏覽 `http://localhost:3000` 將可以看到空的井字棋盤面。
 
-We recommend following [these instructions](http://babeljs.io/docs/editors) to configure syntax highlighting for your editor.
+喔對了！我們建議您可以參考[這份文件](http://babeljs.io/docs/editors)來設定您編輯器的 syntax highlighting。
 
 ### 救命啊！我卡住了！
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux chat](/community/support.html#reactiflux-chat) is a great way to get quick help. If you don't get a good answer anywhere, please file an issue, and we'll help you out.
+如果您遇到什麼不可解的問題，請到[社群支援](/community/support.html)看看。此外，[Reactiflux chat](/community/support.html#reactiflux-chat) 也是一個好的發問渠道。
 
-With this out of the way, let's get started!
+接著，就讓我們開始吧！
 
 ## 背景知識
 
