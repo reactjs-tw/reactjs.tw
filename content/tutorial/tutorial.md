@@ -88,11 +88,11 @@ import './index.css';
 
 ## 背景知識
 
-### What is React?
+### React 是什麼？
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+React 是一個用來建構使用者介面的 javascript 函式庫，兼具了聲明式、效能以及彈性。
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+讓我們先從 `React.Component` 開始講起：
 
 ```javascript
 class ShoppingList extends React.Component {
@@ -113,11 +113,11 @@ class ShoppingList extends React.Component {
 // Example usage: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags in a second. Your components tell React what you want to render – then React will efficiently update and render just the right components when your data changes.
+待會我們再來研究那些類 XML 的標籤是怎麼回事。在上面這個元件中，您告訴了 React 如何渲染畫面，它將在資料變動時高效的重繪畫面。
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props`, and returns a hierarchy of views to display via the `render` method.
+在這裡，ShoppingList 是一個 **React component class**，或者我們也可以稱之為 **React component type**。一個元件藉由 `props` 裡的資料並按照 `render` 的描述繪製畫面。
 
-The `render` method returns a *description* of what you want to render, and then React takes that description and renders it to the screen. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called JSX which makes it easier to write these structures. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+`render` 回傳一個對於畫面的*描述*讓 React 渲染。精確的說，`render` 回傳一個輕量的畫面描述 - *React element*。多數的 React 開發者使用一種類 XML 的特殊語法 - *JSX* 來組織畫面結構。事實上 `<div />` 會被轉換成 `React.createElement('div')`。看看以下這個範例：
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -126,27 +126,27 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[完整展開結果](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it directly in this tutorial. Instead, we will keep using JSX.
+如果您對此感到好奇， [API 文件](/docs/react-api.html#createelement)有更多細節。在這篇教學中我們只會用到 JSX。
 
-You can put any JavaScript expression within braces inside JSX. Each React element is a real JavaScript object that you can store in a variable or pass around your program.
+> 請協助翻譯「API 文件」！
 
-The `ShoppingList` component only renders built-in DOM components, but you can compose custom React components just as easily, by writing `<ShoppingList />`. Each component is encapsulated so it can operate independently, which allows you to build complex UIs out of simple components.
+在 JSX 中您可以直接撰寫 JavaScript 程式。事實上，每個 React 元件都是 JavaScript 物件，是以您可以將之儲存在變數之中來運用。
 
-### Getting Started
+這個 `ShoppingList` 可以以 `<ShoppingList />` 的格式被外部使用，如此一來您就能輕易創建複雜的畫面。
 
-Start with this example: [Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+### 好戲登場
 
-It contains the shell of what we're building today. We've provided the styles so you only need to worry about the JavaScript.
+讓我們從[這裡](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)開始，
 
-In particular, we have three components:
+我們已經提供好初步的外殼，您只需要注意 JavaScript 的部分即可。
 
-* Square
-* Board
-* Game
+我們將它拆分成三個部分：
 
-The Square component renders a single `<button>`, the Board renders 9 squares, and the Game component renders a board with some placeholders that we'll fill in later. None of the components are interactive at this point.
+* Square：每一個可被點擊的單一 `<button>`
+* Board：含有九個 Square
+* Game：含有一個 Board，並加上了其他提示訊息
 
 ### Passing Data Through Props
 

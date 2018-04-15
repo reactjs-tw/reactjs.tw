@@ -27,12 +27,12 @@
       forceInternal: true
       subitems:
         - id: what-is-react
-          title: What is React?
-          href: /tutorial/tutorial.html#what-is-react
+          title: React 是什麼？
+          href: /tutorial/tutorial.html#React是什麼？
           forceInternal: true
         - id: getting-started
-          title: Getting Started
-          href: /tutorial/tutorial.html#getting-started
+          title: 好戲登場
+          href: /tutorial/tutorial.html#好戲登場
           forceInternal: true
         - id: passing-data-through-props
           title: Passing Data Through Props
