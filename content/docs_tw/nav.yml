@@ -27,7 +27,7 @@
     - id: lists-and-keys
       title: Lists and Keys
     - id: forms
-      title: Forms
+      title: 表單(Forms)
     - id: lifting-state-up
       title: Lifting State Up
     - id: composition-vs-inheritance
