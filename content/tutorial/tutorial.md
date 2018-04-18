@@ -148,11 +148,11 @@ return React.createElement('div', {className: 'shopping-list'},
 * Board：含有九個 Square
 * Game：含有一個 Board，並加上了其他提示訊息
 
-### Passing Data Through Props
+### 藉 Props 傳遞資料
 
-Just to get our feet wet, let's try passing some data from the Board component to the Square component.
+現在讓我們試著傳遞一些資料到 Square 內的 Board。
 
-In Board's `renderSquare` method, change the code to pass a `value` prop to the Square:
+首先將 Board 的 `renderSquare` 函式，改動一下程式碼以取用來自 Square prop 的 `value`：
 
 ```js{3}
 class Board extends React.Component {
@@ -161,7 +161,7 @@ class Board extends React.Component {
   }
 ```
 
-Then change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+接著我們將 Square `render` 中 `{/* TODO */}` 改為 `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
@@ -175,15 +175,15 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+改變前：
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+修改後：您將可以發現每個方格都有一個數字：
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-[View the current code.](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)
+[原始碼](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)
 
 ### An Interactive Component
 

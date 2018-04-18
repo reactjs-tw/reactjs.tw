@@ -35,8 +35,8 @@
           href: /tutorial/tutorial.html#好戲登場
           forceInternal: true
         - id: passing-data-through-props
-          title: Passing Data Through Props
-          href: /tutorial/tutorial.html#passing-data-through-props
+          title: 藉 Props 傳遞資料
+          href: /tutorial/tutorial.html#藉Props傳遞資料
           forceInternal: true
         - id: an-interactive-component
           title: An Interactive Component
