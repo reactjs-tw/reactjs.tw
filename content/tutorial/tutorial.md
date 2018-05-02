@@ -185,9 +185,9 @@ class Square extends React.Component {
 
 [原始碼](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)
 
-### An Interactive Component
+### 互動式元件
 
-Let's make the Square component fill in an "X" when you click it. Try changing the button tag returned in the `render()` function of the Square like this:
+我們現在試著讓您在按下 Square 元件的按鈕時顯示 "X"：
 
 ```javascript{4}
 class Square extends React.Component {
@@ -201,13 +201,13 @@ class Square extends React.Component {
 }
 ```
 
-If you click on a square now, you should get an alert in your browser.
+現在如果您按下按鈕，您會得到一個警示！
 
-This uses the new JavaScript [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) syntax. Note that we're passing a function as the `onClick` prop. Doing `onClick={alert('click')}` would alert immediately instead of when the button is clicked.
+在這裡我們使用了 JavaScript 的 [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)。我們將 `alert('click')` 傳給 `onClick` 的參數，這會在您按下按鈕時觸發一個警示視窗。
 
-React components can have state by setting `this.state` in the constructor, which should be considered private to the component. Let's store the current value of the square in state, and change it when the square is clicked.
+React 提供 `this.state` 讓您保留內部狀態 (其初始值在 constructor 中設置)。現在讓我們試著將按下的值儲存在內部。
 
-First, add a constructor to the class to initialize the state:
+首先在 constructor 中初始化 `state`：
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -228,14 +228,14 @@ class Square extends React.Component {
 }
 ```
 
-In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to explicitly call `super();` when defining the constructor of a subclass.
+當您使用 [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) 的 subclass 時，必須明確的在 constructor 呼叫 `super()`。
 
-Now change the Square `render` method to display the value from the current state, and to toggle it on click:
+現在讓我們重寫 `render` 的內容：
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `() => alert()` event handler with `() => this.setState({value: 'X'})`.
+* 將 `<button>` 內的 `this.props.value` 替換成 `this.state.value`
+* 將 `() => alert()` 替換成 `() => this.setState({value: 'X'})`。
 
-Now the `<button>` tag looks like this:
+此時 `<button>` 會變成這樣：
 
 ```javascript{10-12}
 class Square extends React.Component {
@@ -256,11 +256,9 @@ class Square extends React.Component {
 }
 ```
 
-Whenever `this.setState` is called, an update to the component is scheduled, causing React to merge in the passed state update and rerender the component along with its descendants. When the component rerenders, `this.state.value` will be `'X'` so you'll see an X in the grid.
+`this.state` 被呼叫時將會重繪物件，這將會使你在畫面上看到 X。
 
-If you click on any square, an X should show up in it.
-
-[View the current code.](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)
+[原始碼](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)
 
 ### Developer Tools
 

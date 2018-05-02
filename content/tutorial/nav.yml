@@ -39,8 +39,8 @@
           href: /tutorial/tutorial.html#藉Props傳遞資料
           forceInternal: true
         - id: an-interactive-component
-          title: An Interactive Component
-          href: /tutorial/tutorial.html#an-interactive-component
+          title: 互動式元件
+          href: /tutorial/tutorial.html#互動式元件
           forceInternal: true
         - id: developer-tools
           title: Developer Tools
